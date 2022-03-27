@@ -1,0 +1,16 @@
+## Cmake for building cars library
+message(STATUS "Building script for Cars library : ${CMAKE_CURRENT_SOURCE_DIR}")
+cmake_minimum_required(VERSION 3.0.0)
+set(CMAKE_CXX_STANDARD 11)
+file(GLOB SRC_FILES *.cpp)
+file(GLOB HEADER_FILES *.hpp)
+message(STATUS "Adding list of source file for Cars lib: ${SRC_FILES}")
+#add_executable(factoryPattern main.cpp src/camry.cpp)
+add_library(cars EXCLUDE_FROM_ALL ${SRC_FILES})
+target_sources(cars PUBLIC  ${HEADER_FILES})
+target_include_directories(cars INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+
+#project(factoryPattern VERSION 0.1.0)
+#set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+#set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+#include(CPack)
